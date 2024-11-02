@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce76ykrob1xp2"
-path="res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"
+uid="uid://bq6bwwu4q6nqp"
+path="res://.godot/imported/character idle.png-e74e5edc0d93a7b76daf3756dabe8aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/hot bar presses.png"
-dest_files=["res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"]
+source_file="res://Assets/Art/character idle.png"
+dest_files=["res://.godot/imported/character idle.png-e74e5edc0d93a7b76daf3756dabe8aee.ctex"]
 
 [params]
 

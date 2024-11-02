@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce76ykrob1xp2"
-path="res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"
+uid="uid://bd4vo7dsivqsg"
+path="res://.godot/imported/character planting seeds.png-5db96cb56edaab5707379d28d48b781f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/hot bar presses.png"
-dest_files=["res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"]
+source_file="res://Assets/Art/character planting seeds.png"
+dest_files=["res://.godot/imported/character planting seeds.png-5db96cb56edaab5707379d28d48b781f.ctex"]
 
 [params]
 

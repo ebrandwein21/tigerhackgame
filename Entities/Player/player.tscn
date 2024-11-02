@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdx6mvv7kijka"]
+[gd_scene load_steps=12 format=3 uid="uid://cdx6mvv7kijka"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_bhh11"]
 [ext_resource type="Texture2D" uid="uid://cmshy8ph1qtbc" path="res://Assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="1_m7r5d"]
 [ext_resource type="Texture2D" uid="uid://c1n72iqqi7ir2" path="res://Assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ptnwx"]
+[ext_resource type="Script" path="res://Entities/Player/tile_detector.gd" id="4_3ibjj"]
+[ext_resource type="Texture2D" uid="uid://djdyce13ia7ej" path="res://Assets/Art/tile selector.png" id="5_i3673"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jomjr"]
+radius = 4.0
 
 [sub_resource type="Animation" id="Animation_berhw"]
 length = 0.001
@@ -199,6 +204,18 @@ size = Vector2(16, 16)
 collision_mask = 2
 script = ExtResource("1_bhh11")
 
+[node name="TileDetector" type="Area2D" parent="."]
+position = Vector2(0, 16)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_3ibjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileDetector"]
+shape = SubResource("CircleShape2D_jomjr")
+
+[node name="Sprite" type="Sprite2D" parent="TileDetector"]
+texture = ExtResource("5_i3673")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ptnwx")
 hframes = 4
@@ -212,3 +229,6 @@ libraries = {
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7gut5")
+
+[connection signal="body_shape_entered" from="TileDetector" to="TileDetector" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="TileDetector" to="TileDetector" method="_on_body_shape_exited"]

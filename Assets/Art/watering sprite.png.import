@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce76ykrob1xp2"
-path="res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"
+uid="uid://65rfh7s2tx1i"
+path="res://.godot/imported/watering sprite.png-afa62c17d269947377e1a82a3292ef04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/hot bar presses.png"
-dest_files=["res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"]
+source_file="res://Assets/Art/watering sprite.png"
+dest_files=["res://.godot/imported/watering sprite.png-afa62c17d269947377e1a82a3292ef04.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce76ykrob1xp2"
-path="res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"
+uid="uid://cyh1j2tej6xes"
+path="res://.godot/imported/energy and coins.png-9b288403fdbbd3efb6d8ef5156d8f3f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/hot bar presses.png"
-dest_files=["res://.godot/imported/hot bar presses.png-0aa8a40bb75e7a40695608e3c06d81d1.ctex"]
+source_file="res://Assets/Art/energy and coins.png"
+dest_files=["res://.godot/imported/energy and coins.png-9b288403fdbbd3efb6d8ef5156d8f3f3.ctex"]
 
 [params]
 
