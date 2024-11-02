@@ -1,27 +1,42 @@
 extends CharacterBody2D
 
-@export var move_amount:int = 16
-
+@export var tile_size:int = 16
+@export var move_speed:float = 0.2
+@export var move_delay:float = 0.1
+@export var can_move = true
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("idle")
 
-func _unhandled_input(event: InputEvent) -> void:
-	if (event.is_action_pressed("right")):
-		global_position.x += move_amount
-	elif (event.is_action_pressed("left")):
-		global_position.x += -move_amount
-	elif (event.is_action_pressed("up")):
-		global_position.y += -move_amount
-	elif (event.is_action_pressed("down")):
-		global_position.y += move_amount
-	elif (event.is_action_pressed("water")):
+func _process(delta: float) -> void:
+	if (Input.is_action_pressed("right")):
+		move(Vector2(1,0))
+	elif (Input.is_action_pressed("left")):
+		move(Vector2(-1,0))
+	elif (Input.is_action_pressed("up")):
+		move(Vector2(0,-1))
+	elif (Input.is_action_pressed("down")):
+		move(Vector2(0,1))
+	elif (Input.is_action_pressed("water")):
 		animation_player.play("water")
+	move_and_slide()
+
+
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func move(input_dir:Vector2) -> void:
+	if input_dir:
+		if can_move:
+			can_move = false
+			var tween = create_tween()
+			tween.tween_property(self, "global_position", global_position + input_dir*tile_size, move_speed)
+			tween.tween_callback(allow_movement).set_delay(move_delay)
+
+func allow_movement():
+	can_move = true
+	
