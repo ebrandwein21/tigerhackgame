@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var INVENTORY_SIZE = 4
+@export var INVENTORY_SIZE = 3
 
 
 class InventorySlot:
