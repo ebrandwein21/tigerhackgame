@@ -8,5 +8,5 @@ top_level = true
 script = ExtResource("1_8bids")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_s4dwm")
