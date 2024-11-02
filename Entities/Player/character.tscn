@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cex117acbs1lg"]
+[gd_scene load_steps=15 format=3 uid="uid://cex117acbs1lg"]
 
 [ext_resource type="Script" path="res://Entities/Player/tile_detector.gd" id="1_va5gk"]
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_vsyyi"]
+[ext_resource type="PackedScene" uid="uid://cj8jk5rw75hes" path="res://Entities/Plants/plant.tscn" id="2_ek3o6"]
 [ext_resource type="Texture2D" uid="uid://djdyce13ia7ej" path="res://Assets/Art/tile selector.png" id="2_mnh04"]
 [ext_resource type="Texture2D" uid="uid://bq6bwwu4q6nqp" path="res://Assets/Art/character idle.png" id="3_33mxs"]
 [ext_resource type="Texture2D" uid="uid://bd4vo7dsivqsg" path="res://Assets/Art/character planting seeds.png" id="4_wuh07"]
@@ -230,9 +231,11 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+z_index = 1
 collision_mask = 2
 script = ExtResource("1_vsyyi")
 move_speed = 0.1
+plant_ref = ExtResource("2_ek3o6")
 
 [node name="TileDetector" type="Area2D" parent="."]
 position = Vector2(0, 16)
