@@ -271,6 +271,7 @@ tile_set = SubResource("TileSet_cjwvm")
 
 [node name="Player" parent="." instance=ExtResource("1_mc3r7")]
 position = Vector2(200, 120)
+move_speed = 0.1
 
 [node name="Inventory" type="Node2D" parent="Player"]
 script = ExtResource("4_i5o0x")
