@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc24lianacyqb"
+path="res://.godot/imported/Pants Song.mp3-ed2cabb9b13b3d480df2fab58d7e5b13.mp3str"
+
+[deps]
+
+source_file="res://Audio/Pants Song.mp3"
+dest_files=["res://.godot/imported/Pants Song.mp3-ed2cabb9b13b3d480df2fab58d7e5b13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
