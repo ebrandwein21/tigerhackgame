@@ -1,0 +1,150 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca83v14p3iihl"]
+
+[ext_resource type="Script" path="res://Common/UI/ui.gd" id="1_rxk8d"]
+
+[node name="UI" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_rxk8d")
+
+[node name="Options" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0605303, 0.0605303, 0.0605303, 0.784314)
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -52.0
+offset_right = 593.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.519215, 0.519215)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 36
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+columns = 3
+
+[node name="MasterLabel" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Master
+"
+
+[node name="MasterSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Control3" type="Control" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MasterAmount" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer/Control3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "100"
+
+[node name="MusicLabel" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Music
+"
+
+[node name="MusicSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Control2" type="Control" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MusicAmount" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer/Control2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "100"
+
+[node name="SFXLabel" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "SFX
+"
+
+[node name="SFXSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Control" type="Control" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="SFXAmount" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "100"
+
+[node name="Quit" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="value_changed" from="Options/MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Options/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Options/Quit" to="." method="_on_quit_pressed"]
