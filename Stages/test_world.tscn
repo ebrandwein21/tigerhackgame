@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://o4t2dg7lafxe"]
+[gd_scene load_steps=13 format=4 uid="uid://o4t2dg7lafxe"]
 
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_a5v2c"]
 [ext_resource type="TileSet" uid="uid://uf6axfaubrjg" path="res://Entities/FarmPlots/FarmPlots.tres" id="3_i5aa7"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bc24lianacyqb" path="res://Audio/Pants Song.mp3" id="6_do8qv"]
 [ext_resource type="Script" path="res://Stages/inventory.gd" id="7_7rwv4"]
 [ext_resource type="Texture2D" uid="uid://ce76ykrob1xp2" path="res://Assets/Art/hot bar presses.png" id="8_i5b8q"]
+[ext_resource type="Texture2D" uid="uid://cuwimt4esybbl" path="res://Assets/Art/watering can for hotbar.png" id="8_rc025"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x3av"]
 texture = ExtResource("1_a5v2c")
@@ -298,6 +299,10 @@ metadata/_edit_use_anchors_ = true
 texture = ExtResource("8_i5b8q")
 vframes = 5
 frame = 4
+
+[node name="WateringCanForHotbar" type="Sprite2D" parent="Inventory/Control/HBoxContainer"]
+position = Vector2(-39, -2)
+texture = ExtResource("8_rc025")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory/Control/HBoxContainer"]
 libraries = {
