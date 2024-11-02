@@ -1,0 +1,20 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://uf6axfaubrjg"]
+
+[ext_resource type="Texture2D" uid="uid://2vydj6kgdkfd" path="res://Assets/Hana Caraka Crops - Premium/misc.png" id="1_cv25n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an1qh"]
+texture = ExtResource("1_cv25n")
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/custom_data_0 = true
+
+[resource]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "is_watered"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = ""
+custom_data_layer_1/type = 0
+sources/0 = SubResource("TileSetAtlasSource_an1qh")
