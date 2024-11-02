@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdx6mvv7kijka"]
+[gd_scene load_steps=4 format=3 uid="uid://cdx6mvv7kijka"]
 
-[ext_resource type="Texture2D" uid="uid://cidke6s4ylqx8" path="res://icon.svg" id="1_b5fgn"]
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_bhh11"]
+[ext_resource type="Texture2D" uid="uid://c1n72iqqi7ir2" path="res://Assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ptnwx"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmpm2"]
+radius = 6.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_bhh11")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_b5fgn")
+texture = ExtResource("1_ptnwx")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gmpm2")
