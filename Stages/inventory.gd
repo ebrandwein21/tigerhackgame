@@ -1,39 +1,43 @@
 extends Node2D
 
 
-@export var INVENTORY_SIZE = 3
+
+@onready var anim: Sprite2D = $Control/HBoxContainer/Sprite2D
+@export var canPress = false
 
 
-class InventorySlot:
-	var empty = false
-	var num = 0 #this is the number of the same item in that slot, up to 16 pers stack
 
-	
-	#Add item type here later
-
-var slot : Array[InventorySlot] = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	slot.resize(INVENTORY_SIZE)
-	for i in INVENTORY_SIZE:
-		slot[i] = InventorySlot.new()
-
-	# Setting info for watering can
-	slot[0].empty = true
-	slot[0].num = 1
-
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+
+	if (Input.is_action_pressed("1")):
+		anim.frame = 0
+	elif (Input.is_action_just_released("1")):
+		anim.frame = 4
+	elif (Input.is_action_pressed("2")):
+		anim.frame = 1
+	elif (Input.is_action_just_released("2")):
+		anim.frame = 4
+	elif (Input.is_action_pressed("3")):
+		anim.frame = 2
+	elif (Input.is_action_just_released("3")):
+		anim.frame = 4
+	elif (Input.is_action_pressed("4")):
+		anim.frame = 3
+	elif (Input.is_action_just_released("4")):
+		anim.frame = 4
+	
+		
 	pass
 
 
-# Returns the slot number of the next open slot, which doesn't contain any items
-func nextOpen():
-	for i in INVENTORY_SIZE:
-		if slot[i].empty == true:
-			return i+1
+
+
