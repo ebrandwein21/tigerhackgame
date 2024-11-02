@@ -268,11 +268,16 @@ tile_set = ExtResource("3_brs7f")
 [node name="Player" parent="." instance=ExtResource("1_mc3r7")]
 visible = false
 position = Vector2(200, 120)
+tile_size = null
 move_speed = 0.1
 move_delay = 0.05
+can_move = null
 
 [node name="Character" parent="." instance=ExtResource("8_mefbe")]
-position = Vector2(264, 104)
+position = Vector2(216, 184)
+tile_size = null
+move_delay = null
+can_move = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(275, 162)
