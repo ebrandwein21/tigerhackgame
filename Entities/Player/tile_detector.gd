@@ -5,21 +5,18 @@ signal terrain_entered(terrain_type)
 
 var current_tilemaplayer: TileMapLayer
 var current_RID: RID
-var current_is_watered: bool
-var current_seed_type: String
+var tile_data: TileData
+var tile_coords: Vector2i
 
 func _process_tilemap_collision(body: Node2D, body_rid:RID):
 	current_tilemaplayer = body
 	current_RID = body_rid
 	#print("entered " + body.to_string())
 	
-	var collided_tile_coords = current_tilemaplayer.get_coords_for_body_rid(body_rid)
+	tile_coords = current_tilemaplayer.get_coords_for_body_rid(body_rid)
 	
-	var tile_data = current_tilemaplayer.get_cell_tile_data(collided_tile_coords)
-	var is_watered = tile_data.get_custom_data("is_watered")
-	var plant_type = tile_data.get_custom_data("plant_type")
-	current_is_watered = is_watered
-	current_seed_type = plant_type
+	tile_data = current_tilemaplayer.get_cell_tile_data(tile_coords)
+
 	
 	 
 
@@ -34,11 +31,11 @@ func _process(delta: float) -> void:
 
 
 func _on_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	get_overlapping_bodies()
+	if current_RID == body_rid:
+		tile_data = null
 		
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print("entered " + body.to_string())
 	if body is TileMapLayer:
 		_process_tilemap_collision(body, body_rid)
 
