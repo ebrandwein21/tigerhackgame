@@ -153,7 +153,8 @@ tile_map_data = PackedByteArray("AAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAA
 tile_set = SubResource("TileSet_cjwvm")
 
 [node name="Player" parent="." instance=ExtResource("1_mc3r7")]
-position = Vector2(290, 158)
+position = Vector2(200, 120)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 162)
+position = Vector2(253, 149)
+zoom = Vector2(2, 2)
