@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=9 format=4 uid="uid://4vny17p3ghmc"]
 
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
 [ext_resource type="PackedScene" uid="uid://cdx6mvv7kijka" path="res://Entities/Player/player.tscn" id="1_mc3r7"]
 [ext_resource type="Texture2D" uid="uid://bykl38vo2vsd7" path="res://Assets/Sprout Lands - Sprites - Basic pack/Objects/Wood_Bridge.png" id="2_nln14"]
+[ext_resource type="AudioStream" uid="uid://bc24lianacyqb" path="res://Audio/Pants Song.mp3" id="2_x4du3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4q4u"]
 texture = ExtResource("1_ktp6o")
@@ -156,4 +157,10 @@ tile_set = SubResource("TileSet_cjwvm")
 position = Vector2(290, 158)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 162)
+position = Vector2(275, 162)
+zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x4du3")
+autoplay = true
+parameters/looping = true
