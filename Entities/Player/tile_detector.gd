@@ -4,11 +4,13 @@ extends Area2D
 signal terrain_entered(terrain_type)
 
 var current_tilemaplayer: TileMapLayer
+var current_RID: RID
 var current_is_watered: bool
 var current_seed_type: String
 
 func _process_tilemap_collision(body: Node2D, body_rid:RID):
 	current_tilemaplayer = body
+	current_RID = body_rid
 	#print("entered " + body.to_string())
 	
 	var collided_tile_coords = current_tilemaplayer.get_coords_for_body_rid(body_rid)
@@ -18,6 +20,7 @@ func _process_tilemap_collision(body: Node2D, body_rid:RID):
 	var plant_type = tile_data.get_custom_data("plant_type")
 	current_is_watered = is_watered
 	current_seed_type = plant_type
+	
 	 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,11 +34,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print("exited " + body.to_string())
-	if current_tilemaplayer:
-		print("current " + current_tilemaplayer.to_string())
-	else:
-		print("current NULL")
+	get_overlapping_bodies()
+		
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("entered " + body.to_string())

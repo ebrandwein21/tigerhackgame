@@ -285,16 +285,14 @@ autoplay = true
 parameters/looping = true
 
 [node name="Inventory" type="Node2D" parent="."]
-position = Vector2(200, 120)
+position = Vector2(272, 230)
 script = ExtResource("7_7rwv4")
 
 [node name="Control" type="Control" parent="Inventory"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -200.0
-offset_top = -120.0
-offset_right = -160.0
-offset_bottom = -80.0
+offset_right = 40.0
+offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Control"]
@@ -304,7 +302,6 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Inventory/Control/HBoxContainer"]
-position = Vector2(191, 98)
 texture = ExtResource("8_i5b8q")
 vframes = 5
 frame = 4
