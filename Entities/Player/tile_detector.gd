@@ -4,7 +4,8 @@ extends Area2D
 signal terrain_entered(terrain_type)
 
 var current_tilemaplayer: TileMapLayer
-#var current_terrain_area: TerrainArea
+var current_is_watered: bool
+var current_seed_type: String
 
 func _process_tilemap_collision(body: Node2D, body_rid:RID):
 	current_tilemaplayer = body
@@ -14,7 +15,9 @@ func _process_tilemap_collision(body: Node2D, body_rid:RID):
 	
 	var tile_data = current_tilemaplayer.get_cell_tile_data(collided_tile_coords)
 	var is_watered = tile_data.get_custom_data("is_watered")
-	#print(is_watered)
+	var plant_type = tile_data.get_custom_data("plant_type")
+	current_is_watered = is_watered
+	current_seed_type = plant_type
 	 
 
 # Called when the node enters the scene tree for the first time.

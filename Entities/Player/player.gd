@@ -6,7 +6,8 @@ extends CharacterBody2D
 @export var can_move = true
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var tile_detector: TerrainDetector = $TileDetector
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +24,8 @@ func _process(delta: float) -> void:
 	elif (Input.is_action_pressed("down")):
 		move(Vector2(0,1))
 	elif (Input.is_action_pressed("water")):
-		animation_player.play("water")
+		if !tile_detector.current_is_watered:
+			animation_player.play("water")
 	move_and_slide()
 
 
@@ -40,3 +42,6 @@ func move(input_dir:Vector2) -> void:
 func allow_movement():
 	can_move = true
 	
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	animation_player.play("idle")
