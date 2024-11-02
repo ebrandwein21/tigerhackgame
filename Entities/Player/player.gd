@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @export var energy_max:int = 10
 @export var current_energy:int = energy_max
+@export var plant_ref:PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +36,9 @@ func _process(delta: float) -> void:
 		elif (Input.is_action_pressed("2") || Input.is_action_pressed("3") || Input.is_action_pressed("4")):
 			if tile_detector.tile_data && current_energy>0 && tile_detector.tile_data.get_custom_data("plant_type") == "empty":
 				animation_player.play("planting")
+				var plant = plant_ref.instantiate()
+				self.add_child(plant)
+				plant.global_position = tile_detector.global_position
 		
 	move_and_slide()
 
