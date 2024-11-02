@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=12 format=4 uid="uid://4vny17p3ghmc"]
 
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
-[ext_resource type="PackedScene" uid="uid://cdx6mvv7kijka" path="res://Entities/Player/player.tscn" id="1_mc3r7"]
 [ext_resource type="AudioStream" uid="uid://bc24lianacyqb" path="res://Audio/Pants Song.mp3" id="2_x4du3"]
 [ext_resource type="TileSet" uid="uid://breaj76ku45ii" path="res://Entities/Tilesets/Fences.tres" id="2_y2ikr"]
 [ext_resource type="TileSet" uid="uid://uf6axfaubrjg" path="res://Entities/FarmPlots/FarmPlots.tres" id="3_brs7f"]
@@ -265,19 +264,8 @@ tile_set = ExtResource("2_y2ikr")
 tile_map_data = PackedByteArray("AAANAAkAAAAEAAAAAAANAAoAAAAEAAAAAAAOAAoAAAAEAAAAAAAOAAsAAAAEAAAAAAAPAAsAAAAEAAAAAAAPAAoAAAAEAAAAAAAPAAkAAAAEAAAAAAAOAAkAAAAEAAAAAAANAAsAAAAEAAAAAAAQAAkAAAAEAAAAAAAQAAoAAAAEAAAAAAAQAAsAAAAEAAAAAAARAAkAAAAFAAAAAAARAAoAAAAFAAAAAAARAAsAAAAFAAAAAAASAAsAAAAFAAAAAAATAAsAAAAFAAAAAAATAAoAAAAFAAAAAAATAAkAAAAFAAAAAAASAAkAAAAFAAAAAAASAAoAAAAFAAAAAAAUAAkAAAAFAAAAAAAUAAoAAAAFAAAAAAAUAAsAAAAFAAAAAAA=")
 tile_set = ExtResource("3_brs7f")
 
-[node name="Player" parent="." instance=ExtResource("1_mc3r7")]
-visible = false
-position = Vector2(200, 120)
-tile_size = null
-move_speed = 0.1
-move_delay = 0.05
-can_move = null
-
 [node name="Character" parent="." instance=ExtResource("8_mefbe")]
-position = Vector2(216, 184)
-tile_size = null
-move_delay = null
-can_move = null
+position = Vector2(264, 104)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(275, 162)
