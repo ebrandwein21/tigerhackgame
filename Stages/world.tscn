@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=11 format=4 uid="uid://4vny17p3ghmc"]
 
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
 [ext_resource type="PackedScene" uid="uid://cdx6mvv7kijka" path="res://Entities/Player/player.tscn" id="1_mc3r7"]
 [ext_resource type="Texture2D" uid="uid://bykl38vo2vsd7" path="res://Assets/Sprout Lands - Sprites - Basic pack/Objects/Wood_Bridge.png" id="2_nln14"]
 [ext_resource type="AudioStream" uid="uid://bc24lianacyqb" path="res://Audio/Pants Song.mp3" id="2_x4du3"]
 [ext_resource type="Script" path="res://Stages/inventory.gd" id="4_i5o0x"]
+[ext_resource type="PackedScene" uid="uid://ca83v14p3iihl" path="res://Common/UI/ui.tscn" id="6_2lp37"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4q4u"]
 texture = ExtResource("1_ktp6o")
@@ -244,19 +245,33 @@ sources/0 = SubResource("TileSetAtlasSource_w4q4u")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_er7hx"]
 texture = ExtResource("2_nln14")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_cjwvm"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_er7hx")
 
 [node name="World" type="Node2D"]
@@ -266,7 +281,6 @@ tile_map_data = PackedByteArray("AAARAAgAAAABAAEAAAAQAAgAAAABAAEAAAASAAcAAAABAAE
 tile_set = SubResource("TileSet_3d8fo")
 
 [node name="Buildings" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAUAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAALAAsAAAAAAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAQAA0AAAAAAAAAAAARAA0AAAAAAAAAAAASAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAAWAAcAAAAAAAAAAAAWAAgAAAAAAAAAAAAWAAkAAAAAAAAAAAAWAAoAAAAAAAAAAAAWAAsAAAAAAAAAAAAWAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_cjwvm")
 
 [node name="Player" parent="." instance=ExtResource("1_mc3r7")]
@@ -277,9 +291,12 @@ script = ExtResource("4_i5o0x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(275, 162)
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x4du3")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
+
+[node name="UI" parent="." instance=ExtResource("6_2lp37")]

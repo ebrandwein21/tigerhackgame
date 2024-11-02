@@ -1,19 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca83v14p3iihl"]
+[gd_scene load_steps=4 format=3 uid="uid://ca83v14p3iihl"]
 
 [ext_resource type="Script" path="res://Common/UI/ui.gd" id="1_rxk8d"]
+[ext_resource type="FontFile" uid="uid://dacdumhowfl8l" path="res://Assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_poy02"]
+
+[sub_resource type="Theme" id="Theme_22te6"]
+default_font = ExtResource("2_poy02")
+default_font_size = 70
 
 [node name="UI" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_rxk8d")
 
 [node name="Options" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_22te6")
 
 [node name="ColorRect" type="ColorRect" parent="Options"]
 layout_mode = 1
@@ -30,9 +35,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -52.0
-offset_right = 593.0
-offset_bottom = 52.0
+offset_top = -212.0
+offset_right = 988.0
+offset_bottom = 610.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.519215, 0.519215)
