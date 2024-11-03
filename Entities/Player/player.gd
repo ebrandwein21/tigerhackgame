@@ -39,7 +39,8 @@ func _process(delta: float) -> void:
 				var plant = plant_ref.instantiate()
 				self.add_child(plant)
 				plant.global_position = tile_detector.global_position
-		
+		elif (Input.is_action_pressed("harvest")):
+			pass
 	move_and_slide()
 
 	
