@@ -99,6 +99,7 @@ theme_override_font_sizes/font_size = 24
 text = "Carrot"
 
 [node name="Label4" type="Label" parent="CanvasLayer/Panel/Carrot Title"]
+z_index = 1
 layout_mode = 0
 offset_left = -10.0
 offset_top = 28.0
@@ -106,12 +107,11 @@ offset_right = 94.0
 offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("3_624ft")
 theme_override_font_sizes/font_size = 13
-text = "grow time -1
-yield - 5
-water per day - 1
-cost ($) - 1
-total profit - 4
-profit/day - 4"
+text = "grow time: 1 Day
+yield: $5
+water per day: 1
+cost: $1
+PRONE TO WEEDS"
 
 [node name="Tomato Title" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
@@ -134,6 +134,24 @@ theme_override_font_sizes/font_size = 24
 text = "Radish 
 "
 
+[node name="Rice Info" type="Label" parent="CanvasLayer/Panel/Radish Title"]
+z_index = 3
+offset_left = -10.0
+offset_top = 37.0
+offset_right = 120.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 13
+text = "grow time: 1 Day
+yield: $1
+water per day: 1
+cost: FREE"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Radish Title/Rice Info"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Rice Title" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 543.0
@@ -143,21 +161,6 @@ offset_bottom = 249.0
 theme_override_fonts/font = ExtResource("3_624ft")
 theme_override_font_sizes/font_size = 24
 text = "Rice"
-
-[node name="Radish Info" type="Label" parent="CanvasLayer/Panel"]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 190.0
-offset_right = 215.0
-offset_bottom = 357.0
-theme_override_fonts/font = ExtResource("3_624ft")
-theme_override_font_sizes/font_size = 11
-text = "grow time -1
-yield - 1
-water per day - 1
-cost ($) - 0 
-total profit - 1
-profit/day - 1"
 
 [node name="Corn Title" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
@@ -178,6 +181,7 @@ offset_right = 406.0
 offset_bottom = 300.0
 
 [node name="Rice Info" type="Label" parent="CanvasLayer/Panel"]
+z_index = 3
 layout_mode = 2
 offset_left = 516.0
 offset_top = 187.0
@@ -185,12 +189,10 @@ offset_right = 646.0
 offset_bottom = 340.0
 theme_override_fonts/font = ExtResource("3_624ft")
 theme_override_font_sizes/font_size = 13
-text = "grow time -1
-yield - 4
-water per day - 4
-cost ($) - 1
-total profit - 1
-profit/day - 3"
+text = "grow time: 1 Day
+yield: $4
+water per day: 4
+cost: $1"
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/Rice Info"]
 layout_mode = 0
@@ -274,9 +276,9 @@ offset_right = 1062.0
 offset_bottom = 495.0
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
-offset_left = 71.0
+offset_left = 72.0
 offset_top = 184.0
-offset_right = 196.0
+offset_right = 197.0
 offset_bottom = 301.0
 
 [node name="Label" type="Label" parent="."]
