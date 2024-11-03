@@ -1,10 +1,12 @@
 class_name Plant
 extends CharacterBody2D
 
+#Componenets
 @onready var plant: Plant = $"."
 @onready var area_2d: Area2D = $Area2D
 @onready var icon: Sprite2D = $Icon
 
+#Stats
 @export var grow_time:int = 2
 @export var yield_amount:float = 10
 @export var water_needed:int = 2
@@ -13,13 +15,11 @@ var current_water:int = 0
 
 var fully_grown:bool=false
 
+#tile map references
 var plot_rid : RID
 var tile_map:TileMapLayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
+#Always checking if the ground is watered, If true then it consumes hte water and contrubutes to the plant water meter
 func _process(delta: float) -> void:
 	if plot_rid && tile_map:
 		var tile_coords = tile_map.get_coords_for_body_rid(plot_rid)
@@ -36,12 +36,13 @@ func _process(delta: float) -> void:
 			tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
 			
 
+#Used to update tilemap when plant removed
 func remove_plant():
 	var tile_coords = tile_map.get_coords_for_body_rid(plot_rid)
 	tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
 	self.queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#called so plant know where it is on tilemap
 func register_plant_plot(rid:RID, tm:TileMapLayer) -> void:
 	plot_rid = rid
 	tile_map = tm
