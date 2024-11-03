@@ -1,0 +1,334 @@
+[gd_scene load_steps=3 format=3 uid="uid://c26uw3w0fupfo"]
+
+[ext_resource type="Texture2D" uid="uid://gd2nj6uf5fhs" path="res://Assets/Art/hot bar presses.png" id="2_jnh32"]
+[ext_resource type="FontFile" uid="uid://dacdumhowfl8l" path="res://Assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_624ft"]
+
+[node name="Store" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+offset_left = 887.0
+offset_top = 523.0
+offset_right = 1152.0
+offset_bottom = 641.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BoxContainer"]
+layout_mode = 2
+text = "this is where our beautiful 
+character will go "
+
+[node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer"]
+offset_left = -18.0
+offset_top = -7.0
+offset_right = 322.0
+offset_bottom = 91.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.001
+anchor_bottom = 0.117
+offset_left = 5.0
+offset_right = 1155.85
+offset_bottom = 573.184
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.156
+offset_left = 8.0
+offset_top = 528.0
+offset_right = 231.54
+offset_bottom = 548.6
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/BoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Press z to buy
+Press x to sell 
+Use keys to navigate "
+horizontal_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(562, 589)
+scale = Vector2(3, 3)
+texture = ExtResource("2_jnh32")
+vframes = 5
+frame = 4
+
+[node name="Lettuce Title" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.23
+anchor_bottom = 0.035
+offset_left = 743.0
+offset_top = 156.0
+offset_right = 571.04
+offset_bottom = 167.25
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Lettuce
+"
+
+[node name="Potato Title" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 157.0
+offset_right = 1070.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Potato
+"
+
+[node name="Carrot Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 299.0
+offset_top = 161.0
+offset_right = 532.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Carrot"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Carrot Title"]
+offset_left = -10.0
+offset_top = 28.0
+offset_right = 94.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 13
+text = "grow time -1
+yield - 5
+water per day - 1
+cost ($) - 1
+total profit - 4
+profit/day - 4"
+
+[node name="Tomato Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 532.0
+offset_top = 351.0
+offset_right = 621.0
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Tomato"
+
+[node name="Radish Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 87.0
+offset_top = 157.0
+offset_right = 364.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Radish 
+"
+
+[node name="Rice Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 543.0
+offset_top = 158.0
+offset_right = 798.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Rice"
+
+[node name="Radish Info" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 73.0
+offset_top = 190.0
+offset_right = 215.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 11
+text = "grow time -1
+yield - 1
+water per day - 1
+cost ($) - 0 
+total profit - 1
+profit/day - 1"
+
+[node name="Corn Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 90.0
+offset_top = 351.0
+offset_right = 210.0
+offset_bottom = 503.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Corn"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 281.0
+offset_top = 183.0
+offset_right = 406.0
+offset_bottom = 300.0
+
+[node name="Rice Info" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 516.0
+offset_top = 187.0
+offset_right = 646.0
+offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 13
+text = "grow time -1
+yield - 4
+water per day - 4
+cost ($) - 1
+total profit - 1
+profit/day - 3"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Rice Info"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Strawberry Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 281.0
+offset_top = 351.0
+offset_right = 521.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Strawberry "
+
+[node name="Watermelon Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 725.0
+offset_top = 350.0
+offset_right = 939.0
+offset_bottom = 404.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Watermelon"
+
+[node name="Starfruit Title" type="Label" parent="CanvasLayer/Panel"]
+offset_left = 933.0
+offset_top = 350.0
+offset_right = 1144.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("3_624ft")
+theme_override_font_sizes/font_size = 24
+text = "Starfruit"
+
+[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 730.0
+offset_top = 187.0
+offset_right = 855.0
+offset_bottom = 304.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 516.0
+offset_top = 180.0
+offset_right = 641.0
+offset_bottom = 297.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer3"]
+layout_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+offset_left = 661.0
+offset_top = 343.0
+offset_right = 786.0
+offset_bottom = 460.0
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 939.0
+offset_top = 188.0
+offset_right = 1064.0
+offset_bottom = 305.0
+
+[node name="PanelContainer7" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 514.0
+offset_top = 378.0
+offset_right = 639.0
+offset_bottom = 495.0
+
+[node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 729.0
+offset_top = 377.0
+offset_right = 854.0
+offset_bottom = 494.0
+
+[node name="PanelContainer9" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 937.0
+offset_top = 378.0
+offset_right = 1062.0
+offset_bottom = 495.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+anchors_preset = -1
+offset_left = 71.0
+offset_top = 184.0
+offset_right = 196.0
+offset_bottom = 301.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 613.0
+offset_top = -23.0
+offset_right = 1037.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 30
+text = "
+                                     upgrades"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 517.0
+offset_top = 21.0
+offset_right = 708.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 30
+text = "Items"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 24.0
+offset_right = 297.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 30
+text = "Seeds"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+offset_left = 68.0
+offset_top = 376.0
+offset_right = 193.0
+offset_bottom = 493.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 285.0
+offset_top = 378.0
+offset_right = 410.0
+offset_bottom = 495.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 3.0
+offset_right = 159.0
+offset_bottom = 113.0
+
+[node name="Carrot Info" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 735.0
+offset_top = 186.0
+offset_right = 854.0
+offset_bottom = 348.0
+
+[node name="Label" type="Label" parent="Label4"]
+layout_mode = 0
+offset_left = 732.0
+offset_top = 189.0
+offset_right = 772.0
+offset_bottom = 212.0
