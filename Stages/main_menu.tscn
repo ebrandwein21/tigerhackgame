@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://dif7hw1fv3dvk"]
+
+[ext_resource type="Script" path="res://Stages/Menu.gd" id="1_5u26d"]
+[ext_resource type="PackedScene" uid="uid://ca83v14p3iihl" path="res://Common/UI/ui.tscn" id="1_8mdfh"]
+[ext_resource type="Texture2D" uid="uid://bjl8f1ok53y75" path="res://Assets/Art/seed the day icon.png" id="2_32e6c"]
+[ext_resource type="Texture2D" uid="uid://dxscquxbbt604" path="res://Assets/Art/play button.png" id="3_wmswh"]
+[ext_resource type="Texture2D" uid="uid://cawugitcmpy4n" path="res://Assets/Art/next day sprite no text.png" id="4_6iwky"]
+[ext_resource type="FontFile" uid="uid://dacdumhowfl8l" path="res://Assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="5_3g1te"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0833994, 0.814367, 1, 1)
+
+[node name="MenuUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5u26d")
+
+[node name="BG" type="TextureRect" parent="CanvasLayer/MenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_32e6c")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="CanvasLayer/MenuUI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/MenuUI/MarginContainer/VBoxContainer/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
+texture_normal = ExtResource("3_wmswh")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/MenuUI/MarginContainer/VBoxContainer/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+texture_normal = ExtResource("4_6iwky")
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuUI/MarginContainer/VBoxContainer/ButtonsVBox/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.821911, 1.85303e-06, 7.70092e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.436058, 8.66354e-07, 1.68458e-07, 1)
+theme_override_fonts/font = ExtResource("5_3g1te")
+theme_override_font_sizes/font_size = 18
+text = "Quit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" parent="." instance=ExtResource("1_8mdfh")]
+
+[connection signal="pressed" from="CanvasLayer/MenuUI/MarginContainer/VBoxContainer/ButtonsVBox/Play" to="CanvasLayer/MenuUI" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuUI/MarginContainer/VBoxContainer/ButtonsVBox/Quit" to="CanvasLayer/MenuUI" method="_on_quit_pressed"]
