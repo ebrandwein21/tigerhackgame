@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=29 format=4 uid="uid://4vny17p3ghmc"]
 
 [ext_resource type="PackedScene" uid="uid://ca83v14p3iihl" path="res://Common/UI/ui.tscn" id="1_j8a2s"]
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
@@ -12,8 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://ce76ykrob1xp2" path="res://Assets/Art/hot bar presses.png" id="6_m0pau"]
 [ext_resource type="Texture2D" uid="uid://dpjw50ffw51te" path="res://Assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/UI Settings Buttons.png" id="7_nnfyh"]
 [ext_resource type="PackedScene" uid="uid://cex117acbs1lg" path="res://Entities/Player/character.tscn" id="8_mefbe"]
+[ext_resource type="PackedScene" uid="uid://w71xvgag6gvx" path="res://Entities/Plants/corn.tscn" id="9_c5ein"]
+[ext_resource type="PackedScene" uid="uid://d3cxt85g73pfi" path="res://Entities/Plants/carrot.tscn" id="10_xkeff"]
+[ext_resource type="PackedScene" uid="uid://bs0swnephhi50" path="res://Entities/Plants/strawberry.tscn" id="11_mwgum"]
 [ext_resource type="Texture2D" uid="uid://cyh1j2tej6xes" path="res://Assets/Art/energy and coins.png" id="12_1qbb6"]
 [ext_resource type="FontFile" uid="uid://dacdumhowfl8l" path="res://Assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="13_30j33"]
+[ext_resource type="Texture2D" uid="uid://dhsjhvjtn25vk" path="res://Assets/Art/carrot crop sprite.png" id="15_axqh8"]
+[ext_resource type="Texture2D" uid="uid://djkdgfssycccj" path="res://Assets/Art/corn crop sprite.png" id="16_c8l6p"]
+[ext_resource type="Texture2D" uid="uid://cexblu5da178s" path="res://Assets/Art/strawberry crop sprite.png" id="17_ete0e"]
+[ext_resource type="Texture2D" uid="uid://cuwimt4esybbl" path="res://Assets/Art/watering can for hotbar.png" id="18_soft3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18uqj"]
 texture = ExtResource("1_ktp6o")
@@ -470,14 +477,6 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_ouwia")
 
-[sub_resource type="Animation" id="Animation_tpx0l"]
-resource_name = "1 Button press"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5db7d"]
-_data = {
-"1 Button press": SubResource("Animation_tpx0l")
-}
-
 [node name="World" type="Node2D"]
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -497,6 +496,9 @@ tile_set = SubResource("TileSet_v3jy6")
 
 [node name="Character" parent="." instance=ExtResource("8_mefbe")]
 position = Vector2(200, 200)
+corn_ref = ExtResource("9_c5ein")
+carrot_ref = ExtResource("10_xkeff")
+strawberry_ref = ExtResource("11_mwgum")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(275, 162)
@@ -504,38 +506,39 @@ zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x4du3")
+volume_db = -10.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2(200, 120)
 script = ExtResource("4_i5o0x")
 
-[node name="Control" type="Control" parent="Inventory"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -200.0
-offset_top = -120.0
-offset_right = -160.0
-offset_bottom = -80.0
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Inventory/Control/HBoxContainer"]
-position = Vector2(191, 98)
+[node name="Sprite2D" type="Sprite2D" parent="Inventory"]
+position = Vector2(64, 108)
 texture = ExtResource("6_m0pau")
 vframes = 5
 frame = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory/Control/HBoxContainer"]
-libraries = {
-"": SubResource("AnimationLibrary_5db7d")
-}
+[node name="CarrotCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(13, -11)
+texture = ExtResource("15_axqh8")
+hframes = 4
+
+[node name="CornCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(-13, -11)
+texture = ExtResource("16_c8l6p")
+hframes = 5
+
+[node name="StrawberryCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(39, -11)
+texture = ExtResource("17_ete0e")
+hframes = 6
+
+[node name="WateringCanForHotbar" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(-39, -2)
+texture = ExtResource("18_soft3")
 
 [node name="StatsUI" type="CanvasLayer" parent="."]
 

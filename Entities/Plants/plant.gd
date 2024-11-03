@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 				icon.frame += 1
 				if icon.frame-2 >= grow_time:
 					fully_grown = true
+					#print(self.name + str(fully_grown))
 					return
 			tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
 			
