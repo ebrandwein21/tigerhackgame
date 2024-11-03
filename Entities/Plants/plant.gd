@@ -35,6 +35,11 @@ func _process(delta: float) -> void:
 			tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
 			
 
+func remove_plant():
+	var tile_coords = tile_map.get_coords_for_body_rid(plot_rid)
+	tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
+	self.queue_free()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func register_plant_plot(rid:RID, tm:TileMapLayer) -> void:
 	plot_rid = rid
