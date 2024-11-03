@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj8jk5rw75hes"]
 
 [ext_resource type="Script" path="res://Entities/Plants/plant.gd" id="1_8bids"]
-[ext_resource type="Texture2D" uid="uid://cidke6s4ylqx8" path="res://icon.svg" id="1_s4dwm"]
+[ext_resource type="Texture2D" uid="uid://cq7vnxtxjjfr7" path="res://Assets/Art/rice crop sprite.png" id="2_hrhas"]
 
 [node name="Plant" type="Node2D"]
 top_level = true
 script = ExtResource("1_8bids")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_s4dwm")
+position = Vector2(0, 1)
+texture = ExtResource("2_hrhas")
+offset = Vector2(0, -10)
+hframes = 4
+frame = 2

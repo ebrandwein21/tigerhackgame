@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccnq85wgegtfi"
-path="res://.godot/imported/watermelon crop sprite.png-dc0c6386258ddde9b4a1495c853970f1.ctex"
+uid="uid://dhsjhvjtn25vk"
+path="res://.godot/imported/carrot crop sprite.png-2fff7f7ab08003822ac792ba0dd3ed9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/watermelon crop sprite.png"
-dest_files=["res://.godot/imported/watermelon crop sprite.png-dc0c6386258ddde9b4a1495c853970f1.ctex"]
+source_file="res://Assets/Art/carrot crop sprite.png"
+dest_files=["res://.godot/imported/carrot crop sprite.png-2fff7f7ab08003822ac792ba0dd3ed9e.ctex"]
 
 [params]
 
