@@ -31,9 +31,15 @@ func _process(delta: float) -> void:
 				icon.frame += 1
 				if icon.frame-2 >= grow_time:
 					fully_grown = true
+					#print(self.name + str(fully_grown))
 					return
 			tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
 			
+
+func remove_plant():
+	var tile_coords = tile_map.get_coords_for_body_rid(plot_rid)
+	tile_map.set_cell(tile_coords, 0, Vector2i(4, 0))
+	self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func register_plant_plot(rid:RID, tm:TileMapLayer) -> void:

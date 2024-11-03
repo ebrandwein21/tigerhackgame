@@ -1,8 +1,7 @@
 extends Node2D
 
 
-
-@onready var anim: Sprite2D = $Control/HBoxContainer/Sprite2D
+@onready var anim: Sprite2D = $Sprite2D
 @export var canPress = false
 
 

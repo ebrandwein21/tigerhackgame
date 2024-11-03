@@ -58,6 +58,9 @@ texture = ExtResource("2_gso71")
 9:3/0 = 0
 10:3/0 = 0
 11:3/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q331"]
 texture = ExtResource("1_1qk30")

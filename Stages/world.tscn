@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=31 format=4 uid="uid://4vny17p3ghmc"]
 
+[ext_resource type="PackedScene" uid="uid://ca83v14p3iihl" path="res://Common/UI/ui.tscn" id="1_j8a2s"]
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
 [ext_resource type="Texture2D" uid="uid://c64hcpglk8xi8" path="res://Assets/Hana Caraka Cozy Island - Premium/Tilesets/Spring/grass-water.png" id="2_0xpvb"]
 [ext_resource type="AudioStream" uid="uid://bc24lianacyqb" path="res://Audio/Pants Song.mp3" id="2_x4du3"]
@@ -9,7 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://cbanrro1m7h4d" path="res://Assets/Hana Caraka Cozy Island - Premium/Tilesets/Spring/extras/fence.png" id="4_44ugt"]
 [ext_resource type="Script" path="res://Stages/inventory.gd" id="4_i5o0x"]
 [ext_resource type="Texture2D" uid="uid://ce76ykrob1xp2" path="res://Assets/Art/hot bar presses.png" id="6_m0pau"]
+[ext_resource type="Texture2D" uid="uid://dpjw50ffw51te" path="res://Assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/UI Settings Buttons.png" id="7_nnfyh"]
 [ext_resource type="PackedScene" uid="uid://cex117acbs1lg" path="res://Entities/Player/character.tscn" id="8_mefbe"]
+[ext_resource type="PackedScene" uid="uid://w71xvgag6gvx" path="res://Entities/Plants/corn.tscn" id="9_c5ein"]
+[ext_resource type="PackedScene" uid="uid://d3cxt85g73pfi" path="res://Entities/Plants/carrot.tscn" id="10_xkeff"]
+[ext_resource type="PackedScene" uid="uid://bs0swnephhi50" path="res://Entities/Plants/strawberry.tscn" id="11_mwgum"]
+[ext_resource type="Texture2D" uid="uid://cyh1j2tej6xes" path="res://Assets/Art/energy and coins.png" id="12_1qbb6"]
+[ext_resource type="FontFile" uid="uid://dacdumhowfl8l" path="res://Assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="13_30j33"]
+[ext_resource type="Texture2D" uid="uid://dhsjhvjtn25vk" path="res://Assets/Art/carrot crop sprite.png" id="15_axqh8"]
+[ext_resource type="Texture2D" uid="uid://djkdgfssycccj" path="res://Assets/Art/corn crop sprite.png" id="16_c8l6p"]
+[ext_resource type="Texture2D" uid="uid://cexblu5da178s" path="res://Assets/Art/strawberry crop sprite.png" id="17_ete0e"]
+[ext_resource type="Texture2D" uid="uid://cuwimt4esybbl" path="res://Assets/Art/watering can for hotbar.png" id="18_soft3"]
+[ext_resource type="Texture2D" uid="uid://b5hto5r3omdwt" path="res://Assets/Art/score.png" id="19_v5ocs"]
+[ext_resource type="Texture2D" uid="uid://cawugitcmpy4n" path="res://Assets/Art/next day sprite no text.png" id="21_8pcoo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18uqj"]
 texture = ExtResource("1_ktp6o")
@@ -373,13 +386,98 @@ sources/1 = SubResource("TileSetAtlasSource_m2lyi")
 sources/2 = SubResource("TileSetAtlasSource_0r770")
 sources/3 = SubResource("TileSetAtlasSource_53sg3")
 
-[sub_resource type="Animation" id="Animation_tpx0l"]
-resource_name = "1 Button press"
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouwia"]
+texture = ExtResource("7_nnfyh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+0:13/0 = 0
+0:14/0 = 0
+4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:8/0 = 0
+5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:8/0 = 0
+4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5db7d"]
-_data = {
-"1 Button press": SubResource("Animation_tpx0l")
-}
+[sub_resource type="TileSet" id="TileSet_v3jy6"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+sources/2 = SubResource("TileSetAtlasSource_ouwia")
 
 [node name="World" type="Node2D"]
 
@@ -388,15 +486,21 @@ tile_map_data = PackedByteArray("AAARAAgAAAABAAEAAAAQAAgAAAABAAEAAAASAAcAAAABAAE
 tile_set = SubResource("TileSet_3d8fo")
 
 [node name="Buildings" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAA4AAAAAAAIAAAALAAcAAAADAAEAAAALAAgAAAADAAEAAAALAAkAAAADAAEAAAALAAoAAAADAAEAAAALAAsAAAADAAEAAAALAAwAAAADAAEAAAALAA0AAAADAAEAAAALAAYAAAAAAAAAAAAMAAYAAAABAAMAAAANAAYAAAABAAMAAAAOAAYAAAABAAMAAAAPAAYAAAABAAMAAAAQAAYAAAABAAMAAAARAAYAAAABAAMAAAASAAYAAAABAAMAAAATAAYAAAABAAMAAAAUAAYAAAABAAMAAAAVAAYAAAABAAMAAAAWAAYAAAACAAAAAAAWAA4AAAACAAIAAAAWAAcAAAADAAEAAAAWAAgAAAADAAEAAAAWAAkAAAADAAEAAAAWAAoAAAADAAEAAAAWAAsAAAADAAEAAAAWAAwAAAADAAEAAAAWAA0AAAADAAEAAAAMAA4AAAABAAMAAAANAA4AAAABAAMAAAAOAA4AAAABAAMAAAAPAA4AAAABAAMAAAAQAA4AAAABAAMAAAARAA4AAAABAAMAAAASAA4AAAABAAMAAAATAA4AAAABAAMAAAAUAA4AAAABAAMAAAAVAA4AAAABAAMAAAALAA8AAwAAAAAAAAAKAA8AAwAAAAAAAAAMABAAAwAAAAAAAAALABAAAwAAAAAAAAAKAAwABQAMAAQAAAAJAAwABQADAAAAAAAIAAoABQAFAAQAAAAJAAoABQAPAAQAAAAKAAkABQANAAQAAAAJAAkABQAOAAUAAAAJAAsABQAMAAoAAAAKAAsAAwAKAAEAAAAKAAoABQALAAoAAAAZAA4ABQADAAUAAAAYAA4ABQACAAUAAAAYAA0ABQACAAQAAAAZAA0ABQADAAQAAAAZAAwABQAMAAsAAAAYAAwABQACAAMAAAAXAAwABQAJAAMAAAAZAAsABQALAAUAAAAZAAoABQAIAAUAAAAYAAoABQAHAAUAAAAXAAoABQAGAAUAAAAXAAkABQAGAAQAAAAYAAkABQAHAAQAAAAZAAkABQAIAAQAAAAZAAgABQAIAAMAAAAYAAgABQAHAAMAAAAXAAgABQAJAAoAAAAXAAYABQAAAAUAAAAYAAYABQABAAUAAAAXAAUABQAAAAQAAAAYAAUABQABAAQAAAAYAAQABQABAAMAAAAXAAQABQAAAAMAAAAZAAcABQAKAAcAAAAXAAcABQANAAUAAAAKAAgABQAIAAUAAAAIAAwABQACAAAAAAAJAA4ABQADAAIAAAAIAA4ABQACAAIAAAAIAA0ABQACAAEAAAAJAA0ABQADAAEAAAAIAAsABQAFAAUAAAAHAAsABQAEAAUAAAAHAAoABQAEAAQAAAAHAAkABQAEAAMAAAAIAAkABQAFAAMAAAAJAAgABQAHAAUAAAAIAAgABQAGAAUAAAAIAAcABQAGAAQAAAAJAAcABQAHAAQAAAAKAAcABQAIAAQAAAAKAAYABQAIAAMAAAAJAAYABQAHAAMAAAAIAAYABQAGAAMAAAAKAA4ABQAKAAcAAAAVAAUAAQACAAMAAAAWAAUAAQADAAMAAAAUAAUABQALAAoAAAATAAUABQAIAAUAAAASAAUABQAHAAUAAAARAAUABQAGAAUAAAATAAQABQAIAAQAAAASAAQABQAHAAQAAAARAAQABQAGAAQAAAATAAMABQAIAAMAAAASAAMABQAHAAMAAAARAAMABQAGAAMAAAAQAAUABQANAAYAAAAUAA8ABQAJAAYAAAA=")
+tile_map_data = PackedByteArray("AAALAA4AAgAAAAIAAAALAAcAAgADAAEAAAALAAgAAgADAAEAAAALAAkAAgADAAEAAAALAAoAAgADAAEAAAALAAsAAgADAAEAAAALAAwAAgADAAEAAAALAA0AAgADAAEAAAALAAYAAgAAAAAAAAAMAAYAAgABAAMAAAANAAYAAgABAAMAAAAOAAYAAgABAAMAAAAPAAYAAgABAAMAAAAQAAYAAgABAAMAAAARAAYAAgABAAMAAAASAAYAAgABAAMAAAATAAYAAgABAAMAAAAUAAYAAgABAAMAAAAWAAYAAgACAAAAAAAWAA4AAgACAAIAAAAWAAcAAgADAAEAAAAWAAgAAgADAAEAAAAWAAkAAgADAAEAAAAWAAoAAgADAAEAAAAWAAsAAgADAAEAAAAWAAwAAgADAAEAAAAWAA0AAgADAAEAAAAMAA4AAgABAAMAAAANAA4AAgABAAMAAAAOAA4AAgABAAMAAAAPAA4AAgABAAMAAAAQAA4AAgABAAMAAAARAA4AAgABAAMAAAASAA4AAgABAAMAAAATAA4AAgABAAMAAAAUAA4AAgABAAMAAAAVAA4AAgABAAMAAAALAA8AAwAAAAAAAAAKAA8AAwAAAAAAAAAMABAAAwAAAAAAAAALABAAAwAAAAAAAAAKAAwABQAMAAQAAAAJAAwABQADAAAAAAAIAAoABQAFAAQAAAAJAAoABQAPAAQAAAAKAAkABQANAAQAAAAJAAkABQAOAAUAAAAJAAsABQAMAAoAAAAKAAsAAwAKAAEAAAAKAAoABQALAAoAAAAZAA4ABQADAAUAAAAYAA4ABQACAAUAAAAYAA0ABQACAAQAAAAZAA0ABQADAAQAAAAZAAwABQAMAAsAAAAYAAwABQACAAMAAAAXAAwABQAJAAMAAAAZAAsABQALAAUAAAAZAAoABQAIAAUAAAAYAAoABQAHAAUAAAAXAAoABQAGAAUAAAAXAAkABQAGAAQAAAAYAAkABQAHAAQAAAAZAAkABQAIAAQAAAAZAAgABQAIAAMAAAAYAAgABQAHAAMAAAAXAAgABQAJAAoAAAAXAAYABQAAAAUAAAAZAAcABQAKAAcAAAAXAAcABQANAAUAAAAKAAgABQAIAAUAAAAIAAwABQACAAAAAAAJAA4ABQADAAIAAAAIAA4ABQACAAIAAAAIAA0ABQACAAEAAAAJAA0ABQADAAEAAAAIAAsABQAFAAUAAAAHAAsABQAEAAUAAAAHAAoABQAEAAQAAAAHAAkABQAEAAMAAAAIAAkABQAFAAMAAAAJAAgABQAHAAUAAAAIAAgABQAGAAUAAAAIAAcABQAGAAQAAAAJAAcABQAHAAQAAAAKAAcABQAIAAQAAAAKAAYABQAIAAMAAAAJAAYABQAHAAMAAAAIAAYABQAGAAMAAAAKAA4ABQAKAAcAAAAUAA8ABQAJAAYAAAAQAAUABQANAAYAAAARAAMABQAGAAMAAAARAAQABQAGAAQAAAARAAUABQAGAAUAAAASAAMABQAHAAMAAAASAAQABQAHAAQAAAASAAUABQAHAAUAAAATAAMABQAIAAMAAAATAAQABQAIAAQAAAATAAUABQAIAAUAAAAUAAUABQALAAoAAAAXAAQABQAAAAMAAAAXAAUABQAAAAQAAAAYAAQABQABAAMAAAAYAAUABQABAAQAAAAVAAYAAgABAAMAAAAYAAYABQABAAIAAAAVAAUAAQAAAAEAAAAWAAUAAQABAAEAAAA=")
 tile_set = ExtResource("2_y2ikr")
 
 [node name="FarmPlots" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAANAAkAAAAEAAAAAAANAAoAAAAEAAAAAAAOAAoAAAAEAAAAAAAOAAsAAAAEAAAAAAAPAAsAAAAEAAAAAAAPAAoAAAAEAAAAAAAPAAkAAAAEAAAAAAAOAAkAAAAEAAAAAAANAAsAAAAEAAAAAAAQAAkAAAAEAAAAAAAQAAoAAAAEAAAAAAAQAAsAAAAEAAAAAAARAAkAAAAFAAAAAAARAAoAAAAFAAAAAAARAAsAAAAFAAAAAAASAAsAAAAFAAAAAAATAAsAAAAFAAAAAAATAAoAAAAFAAAAAAATAAkAAAAFAAAAAAASAAkAAAAFAAAAAAASAAoAAAAFAAAAAAAUAAkAAAAFAAAAAAAUAAoAAAAFAAAAAAAUAAsAAAAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAAOAAoAAAAEAAAAAAAOAAsAAAAEAAAAAAAPAAsAAAAFAAAAAAAPAAoAAAAEAAAAAAAPAAkAAAAEAAAAAAAOAAkAAAAFAAAAAAAQAAkAAAAFAAAAAAAQAAoAAAAEAAAAAAAQAAsAAAAEAAAAAAARAAkAAAAEAAAAAAARAAoAAAAFAAAAAAARAAsAAAAEAAAAAAASAAsAAAAFAAAAAAATAAsAAAAEAAAAAAATAAoAAAAEAAAAAAATAAkAAAAEAAAAAAASAAkAAAAFAAAAAAASAAoAAAAEAAAAAAA=")
 tile_set = ExtResource("3_brs7f")
+
+[node name="InvisibleBoundry" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_v3jy6")
 
 [node name="Character" parent="." instance=ExtResource("8_mefbe")]
 position = Vector2(200, 200)
+corn_ref = ExtResource("9_c5ein")
+carrot_ref = ExtResource("10_xkeff")
+strawberry_ref = ExtResource("11_mwgum")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(275, 162)
@@ -404,35 +508,144 @@ zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x4du3")
+volume_db = -10.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2(200, 120)
 script = ExtResource("4_i5o0x")
 
-[node name="Control" type="Control" parent="Inventory"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -200.0
-offset_top = -120.0
-offset_right = -160.0
-offset_bottom = -80.0
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Inventory/Control/HBoxContainer"]
-position = Vector2(191, 98)
+[node name="Sprite2D" type="Sprite2D" parent="Inventory"]
+position = Vector2(64, 108)
 texture = ExtResource("6_m0pau")
 vframes = 5
 frame = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory/Control/HBoxContainer"]
-libraries = {
-"": SubResource("AnimationLibrary_5db7d")
-}
+[node name="CarrotCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(13, -11)
+texture = ExtResource("15_axqh8")
+hframes = 4
+
+[node name="CornCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(-13, -11)
+texture = ExtResource("16_c8l6p")
+hframes = 5
+
+[node name="StrawberryCropSprite" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(39, -11)
+texture = ExtResource("17_ete0e")
+hframes = 6
+
+[node name="WateringCanForHotbar" type="Sprite2D" parent="Inventory/Sprite2D"]
+position = Vector2(-39, -2)
+texture = ExtResource("18_soft3")
+
+[node name="StatsUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="StatsUI"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="ScoreGraphic" type="Sprite2D" parent="StatsUI/Control"]
+position = Vector2(15, 47)
+scale = Vector2(2, 2)
+texture = ExtResource("19_v5ocs")
+
+[node name="Score" type="Label" parent="StatsUI/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 49.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.878431, 0.831373, 0.207843, 1)
+theme_override_colors/font_shadow_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="Stats" type="Control" parent="StatsUI"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="EnergyAndCoins" type="Sprite2D" parent="StatsUI/Stats"]
+position = Vector2(-45, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("12_1qbb6")
+
+[node name="MoneyCount" type="Label" parent="StatsUI/Stats"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 63.0
+offset_right = -19.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.917647, 0.882353, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0.831373, 0.756863, 0.411765, 1)
+theme_override_colors/font_outline_color = Color(0.933333, 0.933333, 0.607843, 1)
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="EnergyAmount" type="Label" parent="StatsUI/Stats"]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 17.0
+offset_right = -10.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.470588, 0.631373, 0.345098, 1)
+theme_override_colors/font_shadow_color = Color(0.403922, 0.513726, 0.360784, 1)
+theme_override_colors/font_outline_color = Color(0.643137, 0.760784, 0.388235, 1)
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "0/0
+"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="StatsUI"]
+offset_right = 96.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("21_8pcoo")
+
+[node name="Label" type="Label" parent="StatsUI/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -15.0
+offset_right = 69.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.470588, 0.631373, 0.345098, 1)
+theme_override_colors/font_shadow_color = Color(0.403922, 0.513726, 0.360784, 1)
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "Buy Energy
+5 for $10"
+
+[node name="UI" parent="." instance=ExtResource("1_j8a2s")]
+
+[connection signal="pressed" from="StatsUI/TextureButton" to="Character" method="_on_texture_button_pressed"]

@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="tigerhack"
-run/main_scene="res://Stages/world.tscn"
+run/main_scene="res://Stages/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.356019, 0.61426, 0.857996, 1)
+boot_splash/image="res://Assets/Art/seed the day icon.png"
 config/icon="res://icon.svg"
 
 [audio]
@@ -27,6 +29,7 @@ SoundVolume="*res://Audio/sound_volume.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=324
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [input]
