@@ -1,12 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cex117acbs1lg"]
+[gd_scene load_steps=19 format=3 uid="uid://cex117acbs1lg"]
 
 [ext_resource type="Script" path="res://Entities/Player/tile_detector.gd" id="1_va5gk"]
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_vsyyi"]
 [ext_resource type="PackedScene" uid="uid://cj8jk5rw75hes" path="res://Entities/Plants/plant.tscn" id="2_ek3o6"]
 [ext_resource type="Texture2D" uid="uid://djdyce13ia7ej" path="res://Assets/Art/tile selector.png" id="2_mnh04"]
 [ext_resource type="Texture2D" uid="uid://bq6bwwu4q6nqp" path="res://Assets/Art/character idle.png" id="3_33mxs"]
+[ext_resource type="Script" path="res://Entities/Player/plant_detector.gd" id="3_m8jlb"]
 [ext_resource type="Texture2D" uid="uid://bd4vo7dsivqsg" path="res://Assets/Art/character planting seeds.png" id="4_wuh07"]
 [ext_resource type="Texture2D" uid="uid://65rfh7s2tx1i" path="res://Assets/Art/watering sprite.png" id="6_6es2c"]
+[ext_resource type="Texture2D" uid="uid://bw8ioe0jlufhi" path="res://Assets/Art/character harvesting .png" id="9_7hwta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44cug"]
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uts6r"]
 radius = 4.0
@@ -120,7 +125,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_3h761"]
 resource_name = "planting"
-step = 0.5
+length = 0.4
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -164,7 +170,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 4]
@@ -172,7 +178,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_g60sr"]
 resource_name = "water"
-step = 0.25
+length = 0.5
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -216,15 +223,69 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_e2wgy"]
+resource_name = "harvest"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_7hwta")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jan4g"]
 _data = {
 "RESET": SubResource("Animation_nqi1s"),
+"harvest": SubResource("Animation_e2wgy"),
 "idle": SubResource("Animation_r7lu3"),
 "planting": SubResource("Animation_3h761"),
 "water": SubResource("Animation_g60sr")
@@ -236,12 +297,23 @@ script = ExtResource("1_vsyyi")
 move_speed = 0.1
 plant_ref = ExtResource("2_ek3o6")
 
+[node name="PlantDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_m8jlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantDetector"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_44cug")
+
 [node name="TileDetector" type="Area2D" parent="."]
+position = Vector2(0, 16)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_va5gk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileDetector"]
+visible = false
 shape = SubResource("CircleShape2D_uts6r")
 
 [node name="Sprite" type="Sprite2D" parent="TileDetector"]
@@ -249,7 +321,7 @@ texture = ExtResource("2_mnh04")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(0, -2)
+position = Vector2(0, 5)
 texture = ExtResource("3_33mxs")
 offset = Vector2(0, -10)
 hframes = 8
@@ -262,6 +334,8 @@ libraries = {
 "": SubResource("AnimationLibrary_jan4g")
 }
 
+[connection signal="body_entered" from="PlantDetector" to="PlantDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="PlantDetector" to="PlantDetector" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="TileDetector" to="TileDetector" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="TileDetector" to="TileDetector" method="_on_body_shape_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

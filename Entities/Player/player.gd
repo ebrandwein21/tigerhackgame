@@ -5,10 +5,12 @@ extends CharacterBody2D
 @export var move_delay:float = 0.1
 @export var can_move = true
 @export var plant:Plant
+@export var money:int = 0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var tile_detector: TerrainDetector = $TileDetector
 @onready var farm_plots: TileMapLayer = $"../FarmPlots"
+@onready var plant_detector: Area2D = $PlantDetector
 
 @export var energy_max:int = 10
 @export var current_energy:int = energy_max
@@ -34,13 +36,15 @@ func _process(delta: float) -> void:
 				tile_detector.current_tilemaplayer.set_cell(tile_detector.tile_coords, 0, Vector2i(5, 0))
 				animation_player.play("water")
 		elif (Input.is_action_pressed("2") || Input.is_action_pressed("3") || Input.is_action_pressed("4")):
-			if tile_detector.tile_data && current_energy>0 && tile_detector.tile_data.get_custom_data("plant_type") == "empty":
+			if tile_detector.tile_data && current_energy>0  && !plant_detector.active_plant:
 				animation_player.play("planting")
 				var plant = plant_ref.instantiate()
 				self.add_child(plant)
 				plant.global_position = tile_detector.global_position
 		elif (Input.is_action_pressed("harvest")):
-			pass
+			if plant_detector.active_plant.fully_grown:
+				animation_player.play("harvest")
+				plant_detector.active_plant.queue_free()
 	move_and_slide()
 
 	
