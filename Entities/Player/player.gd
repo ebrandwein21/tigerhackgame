@@ -17,6 +17,9 @@ extends CharacterBody2D
 @onready var money_count: Label = $"../StatsUI/Stats/MoneyCount"
 @onready var energy_amount: Label = $"../StatsUI/Stats/EnergyAmount"
 @onready var score_label: Label = $"../StatsUI/Control/Score"
+@onready var end_scorelabel: Label = $"../GameOverScreen/ScoreUpdated/EndScorelabel"
+@onready var game_over_screen: CanvasLayer = $"../GameOverScreen"
+@onready var end_: TextureButton = $"../StatsUI/End?"
 
 #Audio
 @onready var move_sound: AudioStreamPlayer2D = $Move
@@ -46,6 +49,7 @@ func set_money(value:int):
 func set_score(value:int):
 	score = value
 	score_label.text = str(score)
+	end_scorelabel.text = str(score)
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +60,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if(current_energy <=0 && money <10):
+		end_.show()
+	else:
+		end_.hide()
 	#prevents player from spamming things
 	if(animation_player.current_animation=="idle"):
 		#movement handling
@@ -88,7 +96,7 @@ func _process(delta: float) -> void:
 				plant.global_position = tile_detector.global_position
 				set_energy(current_energy-1)
 		elif (Input.is_action_pressed("harvest")):
-			if plant_detector.active_plant && plant_detector.active_plant.fully_grown:
+			if plant_detector.active_plant && plant_detector.active_plant.fully_grown  && current_energy>0:
 				harvest_sound.play()
 				animation_player.play("harvest")
 				set_money(money+plant_detector.active_plant.yield_amount)
@@ -121,3 +129,11 @@ func _on_texture_button_pressed() -> void:
 	if money >= 10:
 		set_money(money-10)
 		set_energy(current_energy+5)
+
+
+func _on_end_pressed() -> void:
+	game_over_screen.show()
+
+
+func _on_replay_pressed() -> void:
+	get_tree().reload_current_scene()

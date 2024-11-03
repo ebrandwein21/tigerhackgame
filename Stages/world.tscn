@@ -499,7 +499,7 @@ tile_set = ExtResource("3_brs7f")
 tile_set = SubResource("TileSet_v3jy6")
 
 [node name="Character" parent="." instance=ExtResource("8_mefbe")]
-position = Vector2(200, 200)
+position = Vector2(264, 120)
 corn_ref = ExtResource("9_c5ein")
 carrot_ref = ExtResource("10_xkeff")
 strawberry_ref = ExtResource("11_mwgum")
@@ -649,6 +649,45 @@ theme_override_font_sizes/font_size = 18
 text = "Buy Energy
 5 for $10"
 
+[node name="End?" type="TextureButton" parent="StatsUI"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -62.0
+offset_right = -91.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("21_8pcoo")
+
+[node name="Label" type="Label" parent="StatsUI/End?"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -8.5
+offset_right = 30.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.470588, 0.631373, 0.345098, 1)
+theme_override_colors/font_shadow_color = Color(0.403922, 0.513726, 0.360784, 1)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "End?"
+
 [node name="UI" parent="." instance=ExtResource("1_j8a2s")]
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
@@ -705,7 +744,7 @@ scale = Vector2(2, 2)
 size_flags_vertical = 8
 texture = ExtResource("25_u6s8i")
 
-[node name="Label" type="Label" parent="GameOverScreen/ScoreUpdated"]
+[node name="EndScorelabel" type="Label" parent="GameOverScreen/ScoreUpdated"]
 layout_mode = 0
 offset_left = 16.5
 offset_top = 12.0
@@ -714,7 +753,34 @@ offset_bottom = 27.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("13_30j33")
 theme_override_font_sizes/font_size = 18
-text = "12"
+text = "0"
+horizontal_alignment = 1
+
+[node name="Replay" type="TextureButton" parent="GameOverScreen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 48.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("21_8pcoo")
+
+[node name="Label" type="Label" parent="GameOverScreen/Replay"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 77.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "Replay"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="StatsUI/TextureButton" to="Character" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="StatsUI/End?" to="Character" method="_on_end_pressed"]
+[connection signal="pressed" from="GameOverScreen/Replay" to="Character" method="_on_replay_pressed"]
