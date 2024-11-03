@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://4vny17p3ghmc"]
+[gd_scene load_steps=33 format=4 uid="uid://4vny17p3ghmc"]
 
 [ext_resource type="PackedScene" uid="uid://ca83v14p3iihl" path="res://Common/UI/ui.tscn" id="1_j8a2s"]
 [ext_resource type="Texture2D" uid="uid://dgdt7nynhxi3n" path="res://Assets/Hana Caraka Crops - Premium/Field Tileset.png" id="1_ktp6o"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://cuwimt4esybbl" path="res://Assets/Art/watering can for hotbar.png" id="18_soft3"]
 [ext_resource type="Texture2D" uid="uid://b5hto5r3omdwt" path="res://Assets/Art/score.png" id="19_v5ocs"]
 [ext_resource type="Texture2D" uid="uid://cawugitcmpy4n" path="res://Assets/Art/next day sprite no text.png" id="21_8pcoo"]
+[ext_resource type="Texture2D" uid="uid://xg847du5jsts" path="res://Assets/Art/game over.png" id="24_0igqr"]
+[ext_resource type="Texture2D" uid="uid://wljvic1nhe8o" path="res://Assets/Art/score updated.png" id="25_u6s8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18uqj"]
 texture = ExtResource("1_ktp6o")
@@ -632,20 +634,87 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -15.0
-offset_right = 69.0
-offset_bottom = 28.0
+offset_left = -25.5
+offset_top = -14.5
+offset_right = 68.5
+offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.470588, 0.631373, 0.345098, 1)
 theme_override_colors/font_shadow_color = Color(0.403922, 0.513726, 0.360784, 1)
+theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("13_30j33")
 theme_override_font_sizes/font_size = 18
 text = "Buy Energy
 5 for $10"
 
 [node name="UI" parent="." instance=ExtResource("1_j8a2s")]
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BackgroundOverlay" type="ColorRect" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0605303, 0.0605303, 0.0605303, 0.784314)
+
+[node name="GameOverSplash" type="TextureRect" parent="GameOverScreen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_right = 144.0
+offset_bottom = 162.0
+grow_horizontal = 2
+texture = ExtResource("24_0igqr")
+
+[node name="EndGameScore" type="Label" parent="GameOverScreen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -144.0
+offset_right = 64.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "Game Over!
+Your Score was"
+horizontal_alignment = 1
+
+[node name="ScoreUpdated" type="TextureRect" parent="GameOverScreen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -119.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_vertical = 8
+texture = ExtResource("25_u6s8i")
+
+[node name="Label" type="Label" parent="GameOverScreen/ScoreUpdated"]
+layout_mode = 0
+offset_left = 16.5
+offset_top = 12.0
+offset_right = 60.5
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("13_30j33")
+theme_override_font_sizes/font_size = 18
+text = "12"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="StatsUI/TextureButton" to="Character" method="_on_texture_button_pressed"]
