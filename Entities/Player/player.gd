@@ -33,11 +33,13 @@ func _process(delta: float) -> void:
 				current_energy-=1
 				tile_detector.current_tilemaplayer.set_cell(tile_detector.tile_coords, 0, Vector2i(5, 0))
 				animation_player.play("water")
+				
 		elif (Input.is_action_pressed("2") || Input.is_action_pressed("3") || Input.is_action_pressed("4")):
 			if tile_detector.tile_data && current_energy>0 && tile_detector.tile_data.get_custom_data("plant_type") == "empty":
 				animation_player.play("planting")
 				var plant = plant_ref.instantiate()
 				self.add_child(plant)
+				$PlantSound.play()
 				plant.global_position = tile_detector.global_position
 		elif (Input.is_action_pressed("harvest")):
 			pass
@@ -53,6 +55,7 @@ func move(input_dir:Vector2) -> void:
 			var tween = create_tween()
 			tween.tween_property(self, "global_position", global_position + input_dir*tile_size, move_speed)
 			tween.tween_callback(allow_movement).set_delay(move_delay)
+			$MoveSound.play()
 
 func allow_movement():
 	can_move = true

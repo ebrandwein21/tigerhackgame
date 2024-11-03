@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cex117acbs1lg"]
+[gd_scene load_steps=18 format=3 uid="uid://cex117acbs1lg"]
 
 [ext_resource type="Script" path="res://Entities/Player/tile_detector.gd" id="1_va5gk"]
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_vsyyi"]
 [ext_resource type="PackedScene" uid="uid://cj8jk5rw75hes" path="res://Entities/Plants/plant.tscn" id="2_ek3o6"]
 [ext_resource type="Texture2D" uid="uid://djdyce13ia7ej" path="res://Assets/Art/tile selector.png" id="2_mnh04"]
 [ext_resource type="Texture2D" uid="uid://bq6bwwu4q6nqp" path="res://Assets/Art/character idle.png" id="3_33mxs"]
+[ext_resource type="AudioStream" uid="uid://bn01h2h4g765x" path="res://Audio/UI_2_1.wav" id="3_147ng"]
 [ext_resource type="Texture2D" uid="uid://bd4vo7dsivqsg" path="res://Assets/Art/character planting seeds.png" id="4_wuh07"]
 [ext_resource type="Texture2D" uid="uid://65rfh7s2tx1i" path="res://Assets/Art/watering sprite.png" id="6_6es2c"]
+[ext_resource type="AudioStream" uid="uid://cef4bpppfgsd6" path="res://Audio/Crop_Plant.wav" id="8_2fmks"]
+[ext_resource type="AudioStream" uid="uid://dpo2g6xvxfnis" path="res://Audio/Crop_Harvest.wav" id="10_a0k6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uts6r"]
 radius = 4.0
@@ -236,6 +239,10 @@ script = ExtResource("1_vsyyi")
 move_speed = 0.1
 plant_ref = ExtResource("2_ek3o6")
 
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_147ng")
+volume_db = 10.0
+
 [node name="TileDetector" type="Area2D" parent="."]
 position = Vector2(0, 16)
 collision_layer = 0
@@ -262,6 +269,14 @@ shape = SubResource("RectangleShape2D_w6ry6")
 libraries = {
 "": SubResource("AnimationLibrary_jan4g")
 }
+
+[node name="PlantSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2fmks")
+volume_db = 10.0
+
+[node name="HarvestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_a0k6r")
+volume_db = 10.0
 
 [connection signal="body_shape_entered" from="TileDetector" to="TileDetector" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="TileDetector" to="TileDetector" method="_on_body_shape_exited"]
