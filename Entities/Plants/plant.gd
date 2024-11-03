@@ -1,5 +1,5 @@
 class_name Plant
-extends Node2D
+extends CharacterBody2D
 
 @onready var plant: Plant = $"."
 @onready var area_2d: Area2D = $Area2D
