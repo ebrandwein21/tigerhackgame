@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8jk5rw75hes"]
+[gd_scene load_steps=6 format=3 uid="uid://cj8jk5rw75hes"]
 
 [ext_resource type="Script" path="res://Entities/Plants/plant.gd" id="1_8bids"]
 [ext_resource type="Texture2D" uid="uid://djkdgfssycccj" path="res://Assets/Art/corn crop sprite.png" id="2_x87yp"]
 [ext_resource type="Script" path="res://Entities/Plants/Farm_Land_Detector.gd" id="3_oqm51"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rprc8"]
+size = Vector2(16, 16)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_kxgif"]
 radius = 2.0
 
-[node name="Plant" type="Node2D"]
+[node name="Plant" type="CharacterBody2D"]
 top_level = true
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_8bids")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rprc8")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
