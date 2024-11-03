@@ -15,7 +15,7 @@ extends CharacterBody2D
 
 
 
-@export var energy_max:int = 10
+@export var energy_max:int = 20
 @export var current_energy:int = energy_max
 @export var plant_ref:PackedScene
 
