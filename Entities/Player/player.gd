@@ -13,6 +13,10 @@ extends CharacterBody2D
 @onready var money_count: Label = $"../StatsUI/Stats/MoneyCount"
 @onready var energy_amount: Label = $"../StatsUI/Stats/EnergyAmount"
 
+#Audio
+@onready var move_sound: AudioStreamPlayer2D = $Move
+@onready var harvest_sound: AudioStreamPlayer2D = $Harvest
+@onready var plant_sound: AudioStreamPlayer2D = $Plant
 
 
 @export var energy_max:int = 20
@@ -60,11 +64,14 @@ func _process(delta: float) -> void:
 				plant = strawberry_ref.instantiate()
 			if tile_detector.tile_data && current_energy>0  && !plant_detector.active_plant:
 				set_energy(current_energy-1)
+				plant_sound.play()
 				animation_player.play("planting")
 				self.add_child(plant)
 				plant.global_position = tile_detector.global_position
 		elif (Input.is_action_pressed("harvest")):
 			if plant_detector.active_plant && plant_detector.active_plant.fully_grown:
+				harvest_sound.play()
+				set_energy(current_energy-1)
 				animation_player.play("harvest")
 				set_money(money+plant_detector.active_plant.yield_amount)
 				plant_detector.active_plant.remove_plant()
@@ -77,6 +84,7 @@ func move(input_dir:Vector2) -> void:
 	if input_dir:
 		if can_move:
 			can_move = false
+			move_sound.play()
 			var tween = create_tween()
 			tween.tween_property(self, "global_position", global_position + input_dir*tile_size, move_speed)
 			tween.tween_callback(allow_movement).set_delay(move_delay)
@@ -87,3 +95,9 @@ func allow_movement():
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	animation_player.play("idle")
+
+
+func _on_texture_button_pressed() -> void:
+	if money >= 10:
+		set_money(money-10)
+		set_energy(current_energy+5)

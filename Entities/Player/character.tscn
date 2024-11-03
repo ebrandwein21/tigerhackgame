@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://cex117acbs1lg"]
+[gd_scene load_steps=21 format=3 uid="uid://cex117acbs1lg"]
 
 [ext_resource type="Script" path="res://Entities/Player/tile_detector.gd" id="1_va5gk"]
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_vsyyi"]
+[ext_resource type="AudioStream" uid="uid://bn01h2h4g765x" path="res://Audio/UI_2_1.wav" id="2_0aw2l"]
 [ext_resource type="Texture2D" uid="uid://djdyce13ia7ej" path="res://Assets/Art/tile selector.png" id="2_mnh04"]
 [ext_resource type="Texture2D" uid="uid://bq6bwwu4q6nqp" path="res://Assets/Art/character idle.png" id="3_33mxs"]
 [ext_resource type="Script" path="res://Entities/Player/plant_detector.gd" id="3_m8jlb"]
+[ext_resource type="AudioStream" uid="uid://dpo2g6xvxfnis" path="res://Audio/Crop_Harvest.wav" id="3_ynk68"]
+[ext_resource type="AudioStream" uid="uid://cef4bpppfgsd6" path="res://Audio/Crop_Plant.wav" id="4_aqpk1"]
 [ext_resource type="Texture2D" uid="uid://bd4vo7dsivqsg" path="res://Assets/Art/character planting seeds.png" id="4_wuh07"]
 [ext_resource type="Texture2D" uid="uid://65rfh7s2tx1i" path="res://Assets/Art/watering sprite.png" id="6_6es2c"]
 [ext_resource type="Texture2D" uid="uid://bw8ioe0jlufhi" path="res://Assets/Art/character harvesting .png" id="9_7hwta"]
@@ -294,6 +297,18 @@ _data = {
 collision_mask = 2
 script = ExtResource("1_vsyyi")
 move_speed = 0.1
+
+[node name="Move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0aw2l")
+bus = &"SFX"
+
+[node name="Harvest" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ynk68")
+bus = &"SFX"
+
+[node name="Plant" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aqpk1")
+bus = &"SFX"
 
 [node name="PlantDetector" type="Area2D" parent="."]
 collision_layer = 0
