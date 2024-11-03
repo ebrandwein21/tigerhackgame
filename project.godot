@@ -13,6 +13,8 @@ config_version=5
 config/name="tigerhack"
 run/main_scene="res://Stages/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.356019, 0.61426, 0.857996, 1)
+boot_splash/image="res://Assets/Art/seed the day icon.png"
 config/icon="res://icon.svg"
 
 [audio]
