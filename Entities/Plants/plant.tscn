@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj8jk5rw75hes"]
+[gd_scene load_steps=5 format=3 uid="uid://cj8jk5rw75hes"]
 
 [ext_resource type="Script" path="res://Entities/Plants/plant.gd" id="1_8bids"]
-[ext_resource type="Texture2D" uid="uid://cq7vnxtxjjfr7" path="res://Assets/Art/rice crop sprite.png" id="2_hrhas"]
+[ext_resource type="Texture2D" uid="uid://djkdgfssycccj" path="res://Assets/Art/corn crop sprite.png" id="2_x87yp"]
+[ext_resource type="Script" path="res://Entities/Plants/Farm_Land_Detector.gd" id="3_oqm51"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kxgif"]
+radius = 2.0
 
 [node name="Plant" type="Node2D"]
 top_level = true
@@ -9,7 +13,17 @@ script = ExtResource("1_8bids")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("2_hrhas")
+texture = ExtResource("2_x87yp")
 offset = Vector2(0, -10)
-hframes = 4
+hframes = 5
 frame = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_oqm51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kxgif")
+
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
